@@ -15,6 +15,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: 60,
+    marginBottom: 20,
     paddingTop: 15,
     elevation: 5,
     position: "relative"
