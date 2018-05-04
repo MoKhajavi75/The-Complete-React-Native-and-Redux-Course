@@ -5,7 +5,7 @@ import AlbumList from "./src/components/AlbumList";
 
 const App = () => (
   <View>
-    <Header headerText={"!"} />
+    <Header headerText={"Albums"} />
     <AlbumList />
   </View>
 );
