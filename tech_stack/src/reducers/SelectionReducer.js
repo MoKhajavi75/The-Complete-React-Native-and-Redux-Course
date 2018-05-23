@@ -1,3 +1,4 @@
-export default () => {
+export default (state, action) => {
+  alert(action.payload);
   return null;
 };
