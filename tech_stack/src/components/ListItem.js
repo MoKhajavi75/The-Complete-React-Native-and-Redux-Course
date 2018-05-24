@@ -7,7 +7,11 @@ import * as actions from "../actions";
 class ListItem extends Component {
   renderDescription() {
     if (this.props.expanded) {
-      return <Text>{this.props.library.description}</Text>;
+      return (
+        <CardSection>
+          <Text style={{ flex: 1 }}>{this.props.library.description}</Text>
+        </CardSection>
+      );
     }
   }
 
@@ -31,6 +35,7 @@ class ListItem extends Component {
 const styles = {
   titleStyle: {
     fontSize: 18,
+    fontWeight: "bold",
     paddingLeft: 15
   }
 };
