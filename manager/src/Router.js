@@ -7,12 +7,12 @@ import EmployeeCreate from "./components/EmployeeCreate";
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="root" hideNavBar>
+      <Scene key="root" hideNavBar initial>
         <Scene key="auth">
           <Scene key="login" component={LoginForm} title="Please Login" />
         </Scene>
 
-        <Scene key="main" initial>
+        <Scene key="main">
           <Scene
             rightTitle="Add"
             onRight={() => Actions.employeeCreate()}
