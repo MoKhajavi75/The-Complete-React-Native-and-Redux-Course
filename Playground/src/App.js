@@ -1,22 +1,21 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
-class Playground extends Component {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.boxes} />
-        <View style={styles.boxes} />
-        <View
-          style={[
-            styles.boxes,
-            {
-              backgroundColor: "crimson",
-              position: "absolute",
-              right: 0
-            }
-          ]}
-        />
+        <Text>
+          <Text>Lorem Ipsum is </Text>
+          <Text style={styles.emptyTermStyle}> </Text>
+          <Text>
+            {" "}
+            dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when
+            an unknown printer took a galley of type and scrambled it to make a
+            type specimen book
+          </Text>
+        </Text>
       </View>
     );
   }
@@ -26,15 +25,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 25,
+    paddingTop: 20,
+    backgroundColor: "#ecf0f1"
   },
-  boxes: {
+
+  emptyTermStyle: {
     width: 50,
-    height: 50,
-    marginLeft: 1, // to separate each box!
-    backgroundColor: "steelblue"
+    borderBottomWidth: 1,
+    marginVertical: 5
   }
 });
-
-export default Playground;
