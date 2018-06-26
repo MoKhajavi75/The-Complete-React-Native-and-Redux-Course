@@ -3,73 +3,112 @@ import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 
 class App extends Component {
   render() {
+    const {
+      container,
+      topContainer,
+      topTextContainer,
+      bottomContainer,
+      buttonContainer,
+      rowStyles,
+      commandButton,
+      numericButton,
+      arithmeticButton,
+      buttonText
+    } = styles;
+
     return (
-      <View style={styles.container}>
+      <View style={container}>
         {/* top */}
-        <View style={styles.topContainer}>
-          <Text style={styles.topTextContainer}>Top</Text>
+        <View style={topContainer}>
+          <Text style={topTextContainer}>Top</Text>
         </View>
 
         {/* bottom */}
-        <View style={styles.bottomContainer}>
+        <View style={bottomContainer}>
           {/* left */}
-          <View style={styles.sideContainer}>
-            {/* left - 1st row */}
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <TouchableOpacity style={styles.numericButton}>
-                <Text style={styles.buttonText}>CA</Text>
+          <View style={buttonContainer}>
+            {/* 1st row */}
+            <View style={rowStyles}>
+              <TouchableOpacity style={commandButton}>
+                <Text style={buttonText}>CA</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.numericButton}>
-                <Text style={styles.buttonText}>+/-</Text>
+              <TouchableOpacity style={commandButton}>
+                <Text style={buttonText}>+/-</Text>
               </TouchableOpacity>
-            </View>
-
-            {/* left - 2nd row */}
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>7</Text>
+              <TouchableOpacity style={commandButton}>
+                <Text style={buttonText}>%</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>8</Text>
+              <TouchableOpacity style={arithmeticButton}>
+                <Text style={buttonText}>÷</Text>
               </TouchableOpacity>
             </View>
 
-            {/* left - 3rd row */}
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>4</Text>
+            {/* 2nd row */}
+            <View style={rowStyles}>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>7</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>5</Text>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>8</Text>
               </TouchableOpacity>
-            </View>
-
-            {/* left - 4th row */}
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>1</Text>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>9</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>2</Text>
+              <TouchableOpacity style={arithmeticButton}>
+                <Text style={buttonText}>×</Text>
               </TouchableOpacity>
             </View>
 
-            {/* left - 0 */}
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <TouchableOpacity style={styles.arithmeticButton}>
-                <Text style={styles.buttonText}>0</Text>
+            {/* 3rd row */}
+            <View style={rowStyles}>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>4</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>5</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>6</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={arithmeticButton}>
+                <Text style={buttonText}>-</Text>
               </TouchableOpacity>
             </View>
-          </View>
 
-          {/* right */}
-          <View style={styles.sideContainer}>
-            <TouchableOpacity style={styles.numericButton}>
-              <Text style={styles.buttonText}>right 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.numericButton}>
-              <Text style={styles.buttonText}>right 2</Text>
-            </TouchableOpacity>
+            {/* 4th row */}
+            <View style={rowStyles}>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>1</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>2</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={numericButton}>
+                <Text style={buttonText}>3</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={arithmeticButton}>
+                <Text style={buttonText}>+</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* 5th row */}
+            <View style={rowStyles}>
+              <View style={{ flex: 2, flexDirection: "row" }}>
+                <TouchableOpacity style={numericButton}>
+                  <Text style={buttonText}>0</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={rowStyles}>
+                <TouchableOpacity style={numericButton}>
+                  <Text style={buttonText}>.</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={rowStyles}>
+                <TouchableOpacity style={arithmeticButton}>
+                  <Text style={buttonText}>=</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -106,11 +145,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#D3D3D3"
   },
 
-  sideContainer: {
+  buttonContainer: {
     flex: 1,
     flexDirection: "column",
     alignItems: "stretch",
     justifyContent: "center"
+  },
+
+  rowStyles: {
+    flex: 1,
+    flexDirection: "row"
   },
 
   numericButton: {
@@ -118,19 +162,32 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     justifyContent: "center",
     backgroundColor: "#B0C4DE",
-    margin: 5
+    margin: 5,
+    borderRadius: 5
   },
 
   arithmeticButton: {
     flex: 1,
     alignSelf: "stretch",
     justifyContent: "center",
-    backgroundColor: "#FF8C00",
-    margin: 5
+    backgroundColor: "#FF9C00",
+    margin: 5,
+    borderRadius: 5
+  },
+
+  commandButton: {
+    flex: 1,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    backgroundColor: "#778899",
+    margin: 5,
+    borderRadius: 5
   },
 
   buttonText: {
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold"
   }
 });
 
