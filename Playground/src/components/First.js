@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, AsyncStorage } from "react-native";
 import { Button } from "./common";
 import { Actions } from "react-native-router-flux";
 
@@ -8,8 +8,10 @@ class First extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Button
-          onPress={() => {
-            Actions.second({ type: "reset", operator: "Bello!" });
+          onPress={async () => {
+            await AsyncStorage.setItem("msg", "yesss");
+
+            Actions.second({ type: "reset" });
           }}
         >
           Goto Second!
